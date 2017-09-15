@@ -1,0 +1,5 @@
+任务ID,组织ID,角色ID,消息模板ID
+t1,o1,r1,usnaD
+t2,o2,r3,msg2
+t3,o2,r3,msg3
+t4,o3,r3;r4,msg4
