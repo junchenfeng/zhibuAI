@@ -1,13 +1,14 @@
 # -*- encoding:utf-8 -*-
 from task_manager import members, roles, task_execute_check, tasks, birtdayTasks, orgs, task_manager, msg_client, mock_msg_client
 from task_reader import taskReader
-proj_dir = "C:\\Users\\junchen\\Documents\\GitHub\\pydjmsg"
-
+import os
+proj_dir = os.path.dirname(os.path.abspath(__file__))
 
 if __name__ == '__main__':
     import sys
     date = sys.argv[1]
     mode = sys.argv[2]
+    
     # 读入数据
     reader_instance = taskReader(proj_dir+'/data/input/roles.csv', proj_dir+'/data/input/role_org_ref.csv', proj_dir+'/data/input/task.csv', proj_dir+'/data/input/birthday_task.csv')
     reader_instance.read(date)
@@ -32,9 +33,6 @@ if __name__ == '__main__':
         msg_client.list()
         msg_client.close()
     elif mode == 'staging':
-        # 陈剑锋 18811006983
-        # 甘泉 13910525063
-        # 石建国 13910017919
         instance.run_test(date, test_phone_num='18811006983')
     elif mode == 'production':
         instance.run(date)
