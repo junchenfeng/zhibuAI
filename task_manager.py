@@ -211,7 +211,9 @@ class msg_client(object):
 class mock_msg_client(object):
     def __init__(self, log_path):
         self.log_path = log_path
-        
+        log_dir = os.path.dirname(log_path) 
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
         if os.path.exists(self.log_path):
             os.remove(self.log_path)
             

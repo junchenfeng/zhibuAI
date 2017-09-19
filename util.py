@@ -16,7 +16,8 @@ def comma_delimit_reader(path, is_skip = True, sep=','):
             if is_skip:
                 is_skip = False
                 continue
-            output.append(line.strip('\n').split(sep))
+            segs = [x.strip('\r') for x in line.strip('\n').split(sep)]
+            output.append(segs)
     return output
     
 def task_execute_check(run_date, cycle, param):
@@ -136,7 +137,8 @@ def is_workday(date):
     
 def get_role_org_ref(role_name, role_dict, role_org_ref):
     if role_name not in role_dict:
-        raise Exception(u'角色定义必须是支部书记，组织委员，党员，党小组组长或者处长')
+        import ipdb; ipdb.set_trace() # BREAKPOINT
+        raise Exception(u'角色定义必须是支部书记，组织委员，党员，党小组组长或者处长. %s'%role_name)
     role_id = role_dict[role_name]
     if role_id not in role_org_ref:
         raise Exception(u'%s 没有组织' % role_id)

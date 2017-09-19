@@ -33,6 +33,6 @@ if __name__ == '__main__':
         msg_client.list()
         msg_client.close()
     elif mode == 'staging':
-        instance.run_test(date, test_phone_num='18811006983')
+        instance.run_test(date, test_phone_num='13051644352')
     elif mode == 'production':
         instance.run(date)
