@@ -185,8 +185,6 @@ class msg_client(object):
             self.client.set_project(msg_id)
             self.client.add_var('name',name)
             res = self.client.xsend()
-            print(name)
-            print(phone_no)
             time.sleep(3)
             if res['status'] == 'success':
                 # 增加log
